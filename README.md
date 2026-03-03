@@ -63,6 +63,6 @@
 ### 1. Клонирование репозитория
 ```bash
 git clone https://github.com/sharipovai/pet_search_bot.git
-cd petsearch_bot/database_tools
-docker-compose up -d
-python3 main.py
+cd petsearch_bot
+docker-compose up --build -d petsearch
+docker run --rm -v $(pwd):/app  petsearch
