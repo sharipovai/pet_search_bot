@@ -1,10 +1,31 @@
 version: '3.8'
+
 services:
+  # 1. Сервис Базы Данных
   db:
     image: ankane/pgvector:latest
+    restart: always
     environment:
       POSTGRES_USER: bot_user
       POSTGRES_PASSWORD: bot_password
       POSTGRES_DB: pets_db
     ports:
       - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data # Сохраняем данные БД на диске
+
+  # 2. Сервис Твоего Бота
+  bot:
+    build: .
+    restart: always
+    depends_on:
+      - db # Бот запустится только после старта БД
+    environment:
+      # ВАЖНО: Вместо localhost мы пишем имя сервиса - db!
+      - DATABASE_URL=postgresql+asyncpg://bot_user:bot_password@db:5432/pets_db
+    volumes:
+      # Прокидываем кэш, чтобы бот не скачивал DINOv2 каждый раз при перезапуске
+      - ./.cache:/app/.cache 
+
+volumes:
+  pgdata:

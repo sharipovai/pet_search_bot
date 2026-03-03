@@ -1,0 +1,20 @@
+# --- Telegram Bot ---
+pyTelegramBotAPI
+aiohttp
+
+# --- Database ---
+sqlalchemy>=2.0.0
+asyncpg
+pgvector
+greenlet
+
+# --- Machine Learning & Vision ---
+# PyTorch установится отдельно в Dockerfile для экономии места
+transformers
+ultralytics
+opencv-python-headless  # ВАЖНО: headless-версия для серверов без монитора!
+Pillow
+numpy
+
+# --- Misc ---
+python-dotenv
