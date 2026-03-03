@@ -14,11 +14,10 @@
 ## 📸 Скриншоты работы
 
 <p align="center">
-  <img src="[Ссылка на фото 1]" width="45%" alt="Пример работы бота 1">
+  <img src="https://github.com/user-attachments/assets/797fc5f2-b6ee-4e56-aa0e-ad9e56eabc02" width=200 alt="Пример работы бота 1">
   &nbsp; &nbsp;
-  <img src="[Ссылка на фото 2]" width="45%" alt="Пример работы бота 2">
+  <img src="https://github.com/user-attachments/assets/7f0b9077-4911-421d-81c0-113eb911fde5" width=200 alt="Пример работы бота 2">
 </p>
-<p align="center"><i>*Добавьте сюда скриншоты диалога с ботом и пример найденного совпадения*</i></p>
 
 ---
 
@@ -64,4 +63,6 @@
 ### 1. Клонирование репозитория
 ```bash
 git clone https://github.com/sharipovai/pet_search_bot.git
-cd petsearch_bot
+cd petsearch_bot/database_tools
+docker-compose up -d
+python3 main.py
